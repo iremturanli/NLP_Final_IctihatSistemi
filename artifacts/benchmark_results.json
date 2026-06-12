@@ -1,0 +1,937 @@
+{
+  "e5-small (baseline)": {
+    "config": {
+      "name": "e5-small (baseline)",
+      "index_dir": "artifacts/index_small_base",
+      "model_name": "intfloat/multilingual-e5-small",
+      "use_reranker": false
+    },
+    "agg": {
+      "recall@1": 0.7333333333333333,
+      "recall@3": 0.9333333333333333,
+      "recall@5": 0.9333333333333333,
+      "recall@10": 0.9333333333333333,
+      "mrr": 0.8333333333333334,
+      "ndcg@1": 0.7333333333333333,
+      "ndcg@3": 0.8583337799938916,
+      "ndcg@5": 0.8497488592273986,
+      "ndcg@10": 0.8356005926073589,
+      "avg_latency_ms": 22.321478525797527
+    },
+    "per_query": [
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.958080399528401
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9828920819566879,
+        "ndcg@10": 0.9560290452802053
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6934264036172708,
+        "ndcg@5": 0.7328286204777911,
+        "ndcg@10": 0.7760784709829227
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.8529278650606567,
+        "ndcg@10": 0.8529278650606567
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6309297535714575,
+        "ndcg@5": 0.6240505200038379,
+        "ndcg@10": 0.675093172436539
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 0.9197207891481876,
+        "ndcg@5": 0.9197207891481876,
+        "ndcg@10": 0.9197207891481876
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9770153702993118
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9828920819566879,
+        "ndcg@10": 0.9610742864774044
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6309297535714575,
+        "ndcg@5": 0.6509209298071326,
+        "ndcg@10": 0.685898335475349
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.7720911544214064
+      }
+    ]
+  },
+  "e5-small + FT": {
+    "config": {
+      "name": "e5-small + FT",
+      "index_dir": "artifacts/index_small_ft",
+      "model_name": "artifacts/e5-small-tr-legal-ft",
+      "use_reranker": false
+    },
+    "agg": {
+      "recall@1": 0.9333333333333333,
+      "recall@3": 0.9333333333333333,
+      "recall@5": 0.9333333333333333,
+      "recall@10": 0.9333333333333333,
+      "mrr": 0.9333333333333333,
+      "ndcg@1": 0.9333333333333333,
+      "ndcg@3": 0.9333333333333333,
+      "ndcg@5": 0.9134222040134716,
+      "ndcg@10": 0.8871384176756039,
+      "avg_latency_ms": 15.089480082194012
+    },
+    "per_query": [
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9896062251871525
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9726647310833559
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9188490368414884
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.7928654229965442
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.8772153153380493,
+        "ndcg@10": 0.8117854639642847
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.8772153153380493,
+        "ndcg@10": 0.8772153153380493
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9971876401972101
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9469024295259745,
+        "ndcg@10": 0.9469024295259745
+      }
+    ]
+  },
+  "e5-base (baseline)": {
+    "config": {
+      "name": "e5-base (baseline)",
+      "index_dir": "artifacts/index_v1",
+      "model_name": "intfloat/multilingual-e5-base",
+      "use_reranker": false
+    },
+    "agg": {
+      "recall@1": 0.8,
+      "recall@3": 0.8666666666666667,
+      "recall@5": 0.8666666666666667,
+      "recall@10": 0.8666666666666667,
+      "mrr": 0.8333333333333334,
+      "ndcg@1": 0.8,
+      "ndcg@3": 0.8367100361813097,
+      "ndcg@5": 0.8226028755539913,
+      "ndcg@10": 0.810540446963957,
+      "avg_latency_ms": 17.01955795288086
+    },
+    "per_query": [
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9828920819566879,
+        "ndcg@10": 0.9669850519151657
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9674679834891693,
+        "ndcg@10": 0.9349366583346498
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9530418785472458
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6309297535714575,
+        "ndcg@5": 0.6509209298071326,
+        "ndcg@10": 0.6509209298071326
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 0.9197207891481876,
+        "ndcg@5": 0.9047172294870751,
+        "ndcg@10": 0.8948303255886799
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9950883841893561
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9558295932317544,
+        "ndcg@10": 0.9512312000626861
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.8772153153380493,
+        "ndcg@10": 0.8110722760144377
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      }
+    ]
+  },
+  "e5-small + FT + reranker": {
+    "config": {
+      "name": "e5-small + FT + reranker",
+      "index_dir": "artifacts/index_small_ft",
+      "model_name": "artifacts/e5-small-tr-legal-ft",
+      "use_reranker": true
+    },
+    "agg": {
+      "recall@1": 0.7333333333333333,
+      "recall@3": 0.9333333333333333,
+      "recall@5": 0.9333333333333333,
+      "recall@10": 0.9333333333333333,
+      "mrr": 0.8333333333333334,
+      "ndcg@1": 0.7333333333333333,
+      "ndcg@3": 0.8678521707204,
+      "ndcg@5": 0.8603594382649505,
+      "ndcg@10": 0.8505544653295587,
+      "avg_latency_ms": 554.4754028320312
+    },
+    "per_query": [
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9674679834891693,
+        "ndcg@10": 0.923596074502359
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9803771474638899
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6934264036172708,
+        "ndcg@5": 0.7606395682357036,
+        "ndcg@10": 0.7588790805577409
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6934264036172708,
+        "ndcg@5": 0.6934264036172708,
+        "ndcg@10": 0.6978817289434457
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.8529278650606567,
+        "ndcg@10": 0.8240133229614811
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9937947856332161
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6309297535714575,
+        "ndcg@5": 0.6309297535714575,
+        "ndcg@10": 0.5797748398812457
+      }
+    ]
+  },
+  "e5-base + reranker": {
+    "config": {
+      "name": "e5-base + reranker",
+      "index_dir": "artifacts/index_v1",
+      "model_name": "intfloat/multilingual-e5-base",
+      "use_reranker": true
+    },
+    "agg": {
+      "recall@1": 0.7333333333333333,
+      "recall@3": 0.9333333333333333,
+      "recall@5": 0.9333333333333333,
+      "recall@10": 0.9333333333333333,
+      "mrr": 0.8222222222222222,
+      "ndcg@1": 0.7333333333333333,
+      "ndcg@3": 0.8496051297557944,
+      "ndcg@5": 0.8542969505790711,
+      "ndcg@10": 0.8508078814654637,
+      "avg_latency_ms": 539.2221132914226
+    },
+    "per_query": [
+      {
+        "recall@1": 0,
+        "recall@3": 0,
+        "recall@5": 0,
+        "recall@10": 0,
+        "mrr": 0.0,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.0,
+        "ndcg@5": 0.0,
+        "ndcg@10": 0.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 0.9930783166417602
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.3333333333333333,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.5,
+        "ndcg@5": 0.6182885020492784,
+        "ndcg@10": 0.702700013979709
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6934264036172708,
+        "ndcg@5": 0.6934264036172708,
+        "ndcg@10": 0.6663732474096913
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 0.9197207891481876,
+        "ndcg@5": 0.9060254355346823,
+        "ndcg@10": 0.8824387627196181
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 1.0,
+        "ndcg@10": 1.0
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9828920819566879,
+        "ndcg@10": 0.9828920819566879
+      },
+      {
+        "recall@1": 1,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 1.0,
+        "ndcg@1": 1.0,
+        "ndcg@3": 1.0,
+        "ndcg@5": 0.9828920819566879,
+        "ndcg@10": 0.9705437052559006
+      },
+      {
+        "recall@1": 0,
+        "recall@3": 1,
+        "recall@5": 1,
+        "recall@10": 1,
+        "mrr": 0.5,
+        "ndcg@1": 0.0,
+        "ndcg@3": 0.6309297535714575,
+        "ndcg@5": 0.6309297535714575,
+        "ndcg@10": 0.5640920940185894
+      }
+    ]
+  }
+}

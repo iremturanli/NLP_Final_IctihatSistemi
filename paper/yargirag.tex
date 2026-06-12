@@ -1,0 +1,228 @@
+% YargıRAG — IEEE Türkçe Konferans Bildirisi
+% Derleme: pdflatex (UTF-8) ya da Overleaf (IEEEtran hazır gelir).
+% Tüm tablolar gerçek deney sonuçlarıyla doldurulmuştur.
+
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[turkish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+
+\begin{document}
+
+\title{YargıRAG: Türkçe Hukuki Bilgi Erişimi için Alana Uyarlanmış Model ve Açık Kıyaslama Kümesi}
+
+\author{
+\IEEEauthorblockN{İrem Turanlı}
+\IEEEauthorblockA{\textit{Yapay Zeka ve Veri Mühendisliği} \\
+\textit{Ankara Üniversitesi}\\
+Ankara, Türkiye \\
+iremturanli@ankara.edu.tr}
+}
+
+\maketitle
+
+\begin{abstract}
+Genel amaçlı büyük dil modelleri (BDM) hukuki sorulara çoğu zaman kaynak göstermeden ve zaman zaman var olmayan kararlara atıfta bulunarak (halüsinasyon) yanıt vermektedir; bu durum, hatalı bilginin ağır sonuçlar doğurabildiği hukuk alanında ciddi bir risk oluşturur. Türkçe için ne bu görevde modelleri değerlendiren bir kıyaslama kümesi ne de alana uyarlanmış açık bir erişim modeli bulunmaktadır. Bu çalışmada üç katkı sunuyoruz: (1) \textbf{TurkLegalBench}, Türkçe hukuki bilgi erişimi için BEIR-uyumlu, karar bazında sızıntısız (leakage-free) bölünmüş ilk açık kıyaslama kümesi (15.000 karar, 5.369 sorgu); (2) \textbf{legal-e5-tr}, Türkçe Yargıtay ve Danıştay kararları üzerinde çoklu olumsuz sıralama kaybı ve zor olumsuz örnek madenciliği ile alana uyarlanmış açık bir gömme modeli; (3) \textbf{YargıRAG}, hibrit erişim ve kaynak gösterimi yapan, yetersiz emsal durumunda yanıttan kaçınabilen (abstention) bir kaynak-temelli emsal-erişim sistemi. Sızıntısız test kümesinde legal-e5-tr, temel modeli (mE5-base) nDCG@10 ölçütünde 0,206'dan 0,495'e (\%140 göreli artış) taşımakta; beş kat büyük literatürdeki en iyi başarımlı (state-of-the-art, SOTA) modeli BGE-m3'ü (0,284) ve güçlü BM25 tabanını (0,322) anlamlı biçimde geçmektedir ($p<0{,}001$, eşlemeli bootstrap). Model ve kıyaslama kümesi kamuya açık olarak yayımlanmıştır.
+\end{abstract}
+
+\begin{IEEEkeywords}
+hukuki doğal dil işleme, bilgi erişimi, alana uyarlama, gömme modeli, RAG, halüsinasyon, Türkçe, kıyaslama kümesi
+\end{IEEEkeywords}
+
+\section{Giriş}
+Hukuk uygulayıcıları, içtihat araştırmasında geniş karar arşivleri içinde ilgili emsal kararlara hızlıca ulaşmak zorundadır. Büyük dil modelleri (BDM) bu amaçla giderek daha fazla denenmekte; ancak bu modeller kaynak göstermeden yanıt üretmekte ve bazen var olmayan kararlara atıf yapmaktadır. ABD'de bir avukatın ChatGPT'nin ürettiği gerçek dışı kararları mahkemeye sunması sonucu yaptırıma uğraması (\textit{Mata v. Avianca}, 2023) bu riskin somut bir örneğidir. Hukuk gibi yüksek riskli bir alanda, sistemlerin yanıtlarını doğrulanabilir kaynaklara dayandırması ve emin olunmayan durumlarda yanıttan kaçınabilmesi kritik öneme sahiptir.
+
+Türkçe hukuki doğal dil işleme (DDİ), İngilizce'ye kıyasla az çalışılmış bir alandır. İngilizce için Legal-BERT~\cite{chalkidis2020legalbert}, SaulLM gibi alana uyarlanmış modeller ve LegalBench, LeCaRD gibi kıyaslama kümeleri mevcutken, Türkçe için ne bilgi erişimine (retrieval) uyarlanmış açık bir gömme modeli ne de standart bir değerlendirme kümesi bulunmaktadır. Bu boşluk, alandaki ilerlemenin ölçülmesini ve karşılaştırılmasını engellemektedir.
+
+Bu çalışmanın katkıları şunlardır:
+\begin{itemize}
+\item \textbf{TurkLegalBench}: Türkçe hukuki bilgi erişimi için BEIR-uyumlu, karar bazında sızıntısız bölünmüş ilk açık kıyaslama kümesi.
+\item \textbf{legal-e5-tr}: Çoklu olumsuz sıralama kaybı (MNRL) ve zor olumsuz örnek madenciliği ile alana uyarlanmış, kamuya açık bir gömme modeli.
+\item \textbf{YargıRAG}: Hibrit erişim, kaynak gösterimi ve güven-temelli kaçınma (abstention) içeren uçtan uca bir emsal-erişim sistemi.
+\item Sekiz modelli kapsamlı bir başarım karşılaştırması, ayrıştırma (ablation) çalışması ve istatistiksel anlamlılık analizi.
+\end{itemize}
+
+\section{İlgili Çalışmalar}
+\subsection{Hukuki Doğal Dil İşleme}
+Legal-BERT~\cite{chalkidis2020legalbert} ve ardılları, İngilizce hukuk metinleri üzerinde alana uyarlanmış dil modelleri sunmuştur. Türkçe için BERTurk~\cite{schweter2020berturk} genel amaçlı güçlü bir temel oluşturur; hukuk alanına özgü BERTurk-Legal~\cite{berturklegal} ise Yargıtay kararları üzerinde sınıflandırma için eğitilmiştir. Ancak bu modeller maskeli dil modellemesi (MLM) ya da sınıflandırma hedefiyle eğitilmiş olup, asimetrik bilgi erişimi için sözleşmeli (contrastive) biçimde ayarlanmamıştır; deneylerimiz (Bölüm~V) bu modellerin doğrudan erişimde zayıf kaldığını göstermektedir. Türkçe için erişime uyarlanmış açık bir gömme modeli literatürde bulunmamaktadır.
+
+\subsection{Yoğun Erişim ve Hibrit Yöntemler}
+DPR~\cite{karpukhin2020dpr} çift kodlayıcı (bi-encoder) mimarisini, E5~\cite{wang2022e5} ise zayıf-denetimli sözleşmeli ön eğitimi popülerleştirmiştir. Klasik seyrek yöntem BM25~\cite{robertson2009bm25}, nadir terminoloji içeren alanlarda hâlâ rekabetçidir. Karşılıklı Sıralama Füzyonu (RRF)~\cite{cormack2009rrf}, seyrek ve yoğun erişim sonuçlarını ek parametre gerektirmeden birleştirir. Zor olumsuz örnek madenciliği, yoğun erişim modellerinin ince ayarında başarımı belirgin biçimde artıran yerleşik bir tekniktir.
+
+\subsection{RAG ve Güvenilirlik}
+Erişim-Destekli Üretim (RAG)~\cite{lewis2020rag} üretimi dış bilgiyle temellendirir. Ancak temellendirme tek başına güvenilirliği garanti etmez; sistemin kaynak göstermesi ve yetersiz bilgi durumunda yanıttan kaçınması (abstention) gerekir. Bu çalışma, erişim güvenine dayalı bir kaçınma mekanizmasını Türkçe hukuk alanına uyarlamaktadır.
+
+\section{TurkLegalBench}
+\subsection{Veri Kaynağı}
+Kıyaslama kümesi, HuggingFace üzerinde açık erişimli \texttt{Turkish-Law-Documents-700k-clustered} veri kümesinden türetilmiştir. Bu küme, Yargıtay (Hukuk ve Ceza Daireleri) ve Danıştay'ın kamuya açık $\sim$702.000 kararını içerir. Deneylerimizde bu kümeden örneklenen 15.000 karar kullanılmıştır.
+
+\subsection{Oluşturma Yöntemi}
+BEIR/NFCorpus geleneğini izleyen hibrit bir yöntem kullanılmıştır. Her karar için, metnin anahtar konusu veya suç alanı sorgu (query), kararın bilgilendirici gövdesi ise ilgili belge (positive) olacak şekilde otomatik (sorgu, belge) çiftleri üretilmiştir. Karar başlıklarındaki kalıp ifadeler (boilerplate) atlanmış ve ayırt edici olmayan tek-kavramlı sorgular (örneğin yalnızca ``temyiz'', ``beraat'') süzülmüştür. Sorgular, sözcüksel (lexical) ve anlamsal (semantic) olmak üzere iki zorluk katmanına ayrılmıştır.
+
+\subsection{Sızıntısız Bölme}
+Aşırı iyimser sonuçları önlemek için bölme \emph{karar bazında} yapılmıştır: bir karara ait tüm sorgu ve pasajlar yalnızca tek bir bölmede (eğitim/geliştirme/test) yer alır. Bu, ince ayar sırasında modelin test kararlarını görmesini engeller. Küme istatistikleri Tablo~\ref{tab:bench}'tedir.
+
+\subsection{Gerçekçi Gold Değerlendirme Seti}
+Otomatik (silver) kümede sorgular kararların başlık ve anahtar kavramlarından türetildiğinden, sorgu ile ilgili belge aynı karardan kaynaklanır; bu, gerçek kullanıcı sorgularına kıyasla yapay bir kurulum oluşturur. Bu sınırlamayı gidermek için 30 gerçek, doğal hukuki soru içeren bir \emph{gold} değerlendirme seti oluşturduk (örneğin ``İş sözleşmesinin haklı nedenle feshinde kıdem tazminatı ödenir mi?''). Silver kümeden iki temel farkı vardır: (i) sorgular kararların başlıklarından değil, gerçek kullanıcı ifadelerinden gelir; (ii) ilgililik, kararların \emph{içeriğine} göre, uzman-tanımlı kavramsal ölçütlerle ve \emph{çoklu-ilgili} (multi-relevant) biçimde işaretlenir. Bu set, sistemin gerçek kullanım senaryosundaki başarımını ölçer (Bölüm~V-F).
+
+\begin{table}[t]
+\caption{TurkLegalBench İstatistikleri}
+\label{tab:bench}
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Bölme & Belge & Sorgu & \\
+\midrule
+Eğitim (train) & 12.000 & 4.271 & \\
+Geliştirme (dev) & 1.500 & 525 & \\
+Test & 1.500 & 573 & \\
+\midrule
+Toplam & 15.000 & 5.369 & \\
+\midrule
+\multicolumn{4}{l}{\textit{Sorgu türü:} anlamsal 4.653, sözcüksel 716} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Yöntem: YargıRAG}
+\subsection{Sistem Mimarisi}
+YargıRAG dört bileşenden oluşur: (1) hibrit erişim, (2) kaynak gösterimi, (3) güven-temelli kaçınma, (4) isteğe bağlı çapraz-kodlayıcı yeniden sıralama.
+
+\subsection{Hibrit Erişim}
+BM25 seyrek erişimi ile \texttt{legal-e5-tr} yoğun erişimi, Karşılıklı Sıralama Füzyonu (RRF) ile birleştirilir:
+\begin{equation}
+\text{RRF}(d) = \sum_{i \in \{\text{bm25},\text{dense}\}} \frac{1}{k + \text{sıra}_i(d)}, \quad k=60.
+\end{equation}
+Karar metinleri, e5'in 512 belirteçlik (token) bağlam sınırına uyacak biçimde anlamlı pasajlara bölünür.
+
+\subsection{Alana Uyarlama: legal-e5-tr}
+\texttt{multilingual-e5-base} temel modeli, Türkçe hukuk metinlerinden zayıf-denetimli üretilen (sorgu, pasaj) çiftleriyle Çoklu Olumsuz Sıralama Kaybı (MNRL) kullanılarak ince ayarlanır. Yalnızca eğitim bölmesinden BM25 ile zor olumsuz örnekler madenlenerek 13.364 üçlü (anchor, positive, negative) oluşturulmuş ve eğitim güçlendirilmiştir. İnce ayar NVIDIA A100 üzerinde fp16 karma duyarlıkla gerçekleştirilmiştir.
+
+\subsection{Güven-Temelli Kaçınma}
+Sistemin yanıtı, en iyi erişilen pasajın sorguya ham kosinüs benzerliğine dayanır. Bu benzerlik bir eşiğin altındaysa sistem emsal döndürmek yerine ``yeterli güvenilirlikte emsal karar bulunamadı'' yanıtı verir. Eşik, ilgili ve ilgisiz sorguların kosinüs dağılımlarına göre kalibre edilmiştir: ilgili sorgular için en iyi pasaj benzerliği 0,35--0,64 aralığında, ilgisiz (alan dışı) sorgular için 0,24--0,26 aralığında ölçülmüş; 0,30 eşiği bu iki kümeyi tam olarak ayırmıştır.
+
+\subsection{Kaynak Gösterimi}
+Her yanıt, ilgili kararların daire adı, esas ve karar numarası, tarihi, atıfta bulunulan kanun maddeleri ve sorgu terimlerinin vurgulandığı ilgili pasajı ile sunulur. Üretici (generative) bir özetleme yapılmaz; bu, hukuki bağlamda halüsinasyon riskini tasarımdan ortadan kaldırır ve her yanıtın esas/karar numarasıyla doğrulanmasını sağlar.
+
+\section{Deneyler}
+\subsection{Deney Düzeneği}
+Tüm değerlendirmeler sızıntısız \emph{test} bölmesinde (1.500 belge, 573 sorgu) yapılmıştır. Metrikler: Recall@$k$, MRR@10, nDCG@10 ve MAP. Erişim derinliği $k=100$. İstatistiksel anlamlılık eşlemeli bootstrap (10.000 yeniden örnekleme) ile değerlendirilmiştir.
+
+\subsection{Erişim Başarımı}
+Tablo~\ref{tab:retrieval}, sekiz yapılandırmanın sızıntısız test bölmesindeki sonuçlarını göstermektedir. Önerilen \texttt{legal-e5-tr}, tüm modelleri belirgin biçimde geçmektedir.
+
+\begin{table}[t]
+\caption{Erişim Başarımı (TurkLegalBench, sızıntısız test bölmesi)}
+\label{tab:retrieval}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+Model & R@1 & R@5 & R@10 & MRR@10 & nDCG@10 \\
+\midrule
+BERTurk (ort.\ havuz) & 0,014 & 0,070 & 0,110 & 0,037 & 0,054 \\
+BERTurk-Legal (ort.\ havuz) & 0,031 & 0,122 & 0,182 & 0,069 & 0,095 \\
+mE5-base (temel) & 0,112 & 0,244 & 0,328 & 0,169 & 0,206 \\
+mE5-small & 0,140 & 0,295 & 0,379 & 0,206 & 0,247 \\
+mE5-large & 0,152 & 0,309 & --- & 0,221 & 0,263 \\
+BGE-m3 & 0,162 & 0,346 & --- & 0,239 & 0,284 \\
+BM25 & 0,185 & 0,394 & 0,478 & 0,273 & 0,322 \\
+\midrule
+\textbf{legal-e5-tr} & \textbf{0,353} & \textbf{0,576} & \textbf{0,649} & \textbf{0,446} & \textbf{0,495} \\
+\;BM25 + legal-e5-tr & 0,333 & 0,546 & 0,651 & 0,428 & 0,481 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Alana Uyarlamanın Etkisi}
+\texttt{legal-e5-tr}, temel modeli (mE5-base) nDCG@10'da 0,206'dan 0,495'e (\%140 göreli artış), MRR@10'da 0,169'dan 0,446'ya taşımaktadır. Dikkat çekici biçimde, 110M parametreli \texttt{legal-e5-tr}, beş kat büyük (560M) BGE-m3 modelini (0,284) ve güçlü BM25 tabanını (0,322) geçmektedir. Bu, alana uyarlamanın model boyutunu telafi edebildiğini göstermektedir. Eşlemeli bootstrap testinde, \texttt{legal-e5-tr} ile mE5-base ve BM25 arasındaki farklar tüm metriklerde $p<0{,}001$ düzeyinde anlamlıdır; \%95 güven aralıkları örtüşmemektedir.
+
+\subsection{Gerçekçi Gold Sette Başarım}
+Sistemin gerçek kullanım senaryosundaki başarımını, 30 doğal hukuki soru içeren gold sette değerlendirdik (Tablo~\ref{tab:gold}). \texttt{legal-e5-tr}, gerçek sorgularda Recall@1 = 0,80 ve nDCG@10 = 0,825 elde etmektedir; yani ilk denemede sorguların \%80'inde, ilk beş sonuçta ise \%90'ında ilgili emsali döndürmektedir. Gold sette mutlak değerlerin silver kümeden yüksek olması iki nedene dayanır: (i) gerçek sorgular daha zengin sözcüksel ve anlamsal sinyal taşır; (ii) çoklu-ilgili etiketleme, silver kümedeki tek-ilgili kısıtının yarattığı yapay alt-sınırı kaldırır. Bu sonuç, otomatik kurulumun dairesellik sınırlamasına karşın sistemin gerçek sorgularda yüksek başarım gösterdiğini doğrular.
+
+\begin{table}[t]
+\caption{Gerçekçi Gold Sette Başarım (30 doğal hukuki soru)}
+\label{tab:gold}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Değerlendirme & R@1 & R@5 & MRR@10 & nDCG@10 \\
+\midrule
+Silver (otomatik kurulum) & 0,353 & 0,576 & 0,446 & 0,495 \\
+\textbf{Gold (gerçek sorgular)} & \textbf{0,800} & \textbf{0,900} & \textbf{0,842} & \textbf{0,825} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Ayrıştırma Çalışması}
+Tablo~\ref{tab:ablation} seyrek/yoğun/hibrit erişimi ve parça (chunk) boyutunun etkisini özetler. İlginç bir bulgu olarak, hibrit (BM25 + legal-e5-tr, RRF) yapılandırma ile tek başına \texttt{legal-e5-tr} arasında anlamlı fark gözlenmemiştir ($p>0{,}17$); yani alana uyarlanmış yoğun model, hibrit füzyon kadar iyi sonuç vermekte, seyrek bileşen ek katkı sağlamamaktadır. Parça boyutu 600--1500 karakter aralığında başarım kararlıdır (nDCG@10 $\approx$ 0,51), bu da sistemin bu parametreye duyarsız olduğunu gösterir.
+
+\begin{table}[t]
+\caption{Ayrıştırma: Erişim Türü ve Parça Boyutu}
+\label{tab:ablation}
+\centering
+\begin{tabular}{lcc}
+\toprule
+Yapılandırma & MRR@10 & nDCG@10 \\
+\midrule
+BM25 (yalnız seyrek) & 0,273 & 0,322 \\
+legal-e5-tr (yalnız yoğun) & 0,446 & 0,495 \\
+BM25 + legal-e5-tr (RRF) & 0,428 & 0,481 \\
+\midrule
+legal-e5-tr, parça=600 & 0,462 & 0,512 \\
+legal-e5-tr, parça=900 & \textbf{0,467} & \textbf{0,516} \\
+legal-e5-tr, parça=1200 & 0,464 & 0,513 \\
+legal-e5-tr, parça=1500 & 0,465 & 0,513 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Hata Analizi}
+Sorgu türüne göre BM25 ve \texttt{legal-e5-tr}'nin ilk-10 başarımı Tablo~\ref{tab:error}'de karşılaştırılmıştır. Anlamsal sorgularda yoğun model beklenildiği gibi üstündür (81'e 10). Daha çarpıcı olan, \emph{sözcüksel} sorgularda da yoğun modelin BM25'i geçmesidir (66'ya 0): alana uyarlanmış model yalnızca anlamı değil, hukuki terminolojinin sözcüksel eşleşmesini de öğrenmiştir.
+
+\begin{table}[t]
+\caption{Hata Analizi: İlk-10 Kazananı (BM25 vs legal-e5-tr)}
+\label{tab:error}
+\centering
+\begin{tabular}{lccc}
+\toprule
+Sorgu türü & BM25 üstün & legal-e5-tr üstün & Berabere \\
+\midrule
+Anlamsal & 10 & 81 & 400 \\
+Sözcüksel & 0 & 66 & 16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Tartışma}
+Sonuçlar üç temel çıkarım sunar. Birincisi, Türkçe hukuk alanında alana uyarlama, genel amaçlı çok dilli modellere kıyasla büyük ve istatistiksel olarak anlamlı bir kazanım sağlamaktadır. İkincisi, alana uyarlanmış görece küçük bir modelin, çok daha büyük SOTA modellerini geçebilmesi, hesaplama açısından verimli ve dağıtılabilir çözümler için cesaret vericidir; \texttt{legal-e5-tr} çıkarımda 1,1~GB'ın altında GPU belleğiyle, hatta CPU üzerinde çalışabilmektedir. Üçüncüsü, kaynak gösterimi ve güven-temelli kaçınmanın birleşimi, üretici halüsinasyon riskini tasarımdan ortadan kaldırarak hukuk uygulayıcıları için güvenilir bir araç sağlamaktadır.
+
+\section{Sınırlamalar ve Etik}
+Otomatik (gümüş) sorgu-belge çiftleri gürültü içerebilir; insan-doğrulanmış altın altküme bu sınırlamayı azaltacaktır. Tek-ilgili etiketleme şeması, bir sorgunun birden çok geçerli yanıtı olabildiği durumlarda mutlak metrik değerlerini olduğundan düşük gösterebilir; bu nedenle karşılaştırmalı üstünlük ve göreli farklar daha güvenilir göstergelerdir. Sistem hukuki tavsiye sağlamaz; kaynak gösteren bir araştırma aracıdır. Veriler kamuya açık karar arşivlerinden derlenmiştir.
+
+\section{Sonuç}
+Türkçe hukuki yapay zeka için açık bir kıyaslama kümesi (TurkLegalBench), alana uyarlanmış açık bir gömme modeli (legal-e5-tr) ve kaynak-temelli ve kaçınma yetenekli bir emsal-erişim sistemi (YargıRAG) sunduk. Sızıntısız değerlendirmede önerilen model, temel modeli \%140 göreli artışla geçmekte ve beş kat büyük SOTA modellerini aşmaktadır. Gelecek çalışmalar: insan-doğrulanmış altın değerlendirme kümesi, tam 700.000 karara ölçekleme, Türkçe için çapraz-kodlayıcı yeniden sıralayıcının ince ayarı ve faithfulness ölçümlü üretici yanıt katmanı.
+
+\section*{Yeniden Üretilebilirlik}
+Model (\texttt{legal-e5-tr}) ve kıyaslama kümesi (\texttt{TurkLegalBench}) HuggingFace üzerinde, kod ise açık depoda yayımlanmıştır.
+
+\begin{thebibliography}{00}
+\bibitem{chalkidis2020legalbert} I. Chalkidis, M. Fergadiotis, P. Malakasiotis, N. Aletras ve I. Androutsopoulos, ``LEGAL-BERT: The Muppets straight out of Law School,'' \textit{Findings of EMNLP}, 2020.
+\bibitem{schweter2020berturk} S. Schweter, ``BERTurk: BERT Models for Turkish,'' Zenodo, 2020.
+\bibitem{berturklegal} KocLab-Bilkent, ``BERTurk-Legal: A Pre-trained Language Model for the Turkish Legal Domain,'' HuggingFace, 2023.
+\bibitem{karpukhin2020dpr} V. Karpukhin ve diğ., ``Dense Passage Retrieval for Open-Domain Question Answering,'' \textit{EMNLP}, 2020.
+\bibitem{wang2022e5} L. Wang ve diğ., ``Text Embeddings by Weakly-Supervised Contrastive Pre-training,'' arXiv:2212.03533, 2022.
+\bibitem{robertson2009bm25} S. Robertson ve H. Zaragoza, ``The Probabilistic Relevance Framework: BM25 and Beyond,'' \textit{Foundations and Trends in IR}, 2009.
+\bibitem{cormack2009rrf} G. V. Cormack, C. L. A. Clarke ve S. Buettcher, ``Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods,'' \textit{SIGIR}, 2009.
+\bibitem{lewis2020rag} P. Lewis ve diğ., ``Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,'' \textit{NeurIPS}, 2020.
+\end{thebibliography}
+
+\end{document}

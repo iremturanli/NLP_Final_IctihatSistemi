@@ -1,0 +1,111 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1780874421.868586 2091249 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1780874421.898268 2091249 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1780874422.639979 2091249 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1780874422.640337 2091249 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Loading index from artifacts/index_v1...
+Loaded 11214 chunks (2000 kararlar)
+[embedder] Loading intfloat/multilingual-e5-base on cpu
+[retriever] Building BM25 index...
+
+======================================================================
+[icra/iflas] SORGU: ihtiyati haciz, icra takibi sayılır mı
+======================================================================
+  [1] score=0.0323 | 13. Hukuk Dairesi | E.2017/4568/K.2017/6391 (24.05.2017)
+      13. Hukuk Dairesi         2017/4568 E.  ,  2017/6391 K.  "İçtihat Metni"  ... AŞ vekili avukat ... ile Işıl Yavuzal aralarındaki ihtiyati haciz davası hakkında ... Tüketici Mahkemesinden verilen 12.7....
+  [2] score=0.0318 | 20. Hukuk Dairesi | E.2015/10409/K.2015/9296 (15.10.2015)
+      a, süresinde olduğu anlaşılan temyiz dilekçesinin kabulüne karar verildikten sonra dosya içindeki tüm belgeler incelendi, gereği düşünüldü:  K A R A R  Taraflar arasında görülen alacak davası sırasınd...
+  [3] score=0.0315 | 20. Hukuk Dairesi | E.2012/14588/K.2013/670 (04.02.2013)
+      , süresinde olduğu anlaşılan temyiz dilekçesinin kabulüne karar verildikten sonra. dosya içindeki tüm belgeler incelendi, gereği düşünüldü:  K A R A R  H.M.K.nun 394. maddesine göre, ihtiyati tedbir n...
+
+======================================================================
+[ceza] SORGU: karşılıksız yararlanma suçunda beraat
+======================================================================
+  [1] score=0.0328 | 17. Ceza Dairesi | E.2016/12248/K.2017/7610 (13.06.2017)
+      17. Ceza Dairesi         2016/12248 E.  ,  2017/7610 K.  "İçtihat Metni"  MAHKEMESİ :Asliye Ceza Mahkemesi  SUÇ : Karşılıksız yararlanma  HÜKÜM : Beraat  Yerel mahkemece verilen hüküm temyiz edilmekle...
+  [2] score=0.0161 | 8. Ceza Dairesi | E.2024/12231/K.2025/1969 (11.03.2025)
+      Kanun'un 23/5-2. cümle uyarınca 10 ay hapis cezası ile cezalandırılmasına ve hak yoksunluklarına karar verilmiştir.  B. Bölge Adliye Mahkemesi Kararı  Karaman Ağır Ceza Mahkemesinin, 04.03.2020 tarihl...
+  [3] score=0.0159 | 7. Ceza Dairesi | E.2013/5531/K.2014/1533 (30.01.2014)
+      ylelikle kaçağa kaldığı gözetilmeksizin sanığın mahkumiyeti yerine yetersiz bilirkişi raporuna itibar edilerek yazılı şekilde beraat kararı verilmesi,  Yasaya aykırı, katılan vekilinin temyiz itirazla...
+
+======================================================================
+[idari] SORGU: idari yargıda yürütmenin durdurulması
+======================================================================
+  [1] score=0.0325 | 4. Hukuk Dairesi | E.2012/7065/K.2013/6076 (02.04.2013)
+      ği bildirildi. Dosyanın görüşülmesine geçildi. Tetkik hakimi tarafından hazırlanan rapor ile dosya içerisindeki kağıtlar incelenerek gereği düşünüldü.  Dava, idari yargı kararının uygulanmaması nedeni...
+  [2] score=0.0297 | 4. Hukuk Dairesi | E.2010/11997/K.2010/11115 (28.10.2010)
+      irlenmesinin idari yargının görev alanına girdiği gerekçesiyle, yargı yolu bakımından mahkemenin görevsizliği nedeniyle dava dilekçesi reddedilmiştir.  İdari yargı yerlerinde açılacak davalarda husume...
+  [3] score=0.0161 | 13. Hukuk Dairesi | E.2010/9651/K.2011/2323 (17.02.2011)
+      emiştir.  Mahkemece, davanın idari yargıda görülmesi gerektiğinden bahisle görevsizlik kararı verilmiş; hüküm, davacılar tarafından temyiz edilmiştir.  Uyuşmazlık, davacı ile davalı arasında özel huku...
+
+======================================================================
+[ceza/leksik] SORGU: 4733 sayılı yasa tütün muhalefet
+======================================================================
+  [1] score=0.0328 | 7. Ceza Dairesi | E.2023/1327/K.2023/4476 (10.05.2023)
+      ereği temyiz isteğinin reddini gerektirir bir durumun bulunmadığı yapılan ön inceleme neticesinde tespit edilmekle, gereği düşünüldü:  I. HUKUKÎ SÜREÇ  1.İzmir 1. Asliye Ceza Mahkemesinin, 17.09.2012 ...
+  [2] score=0.0315 | 7. Ceza Dairesi | E.2022/12245/K.2023/11294 (14.12.2023)
+      gereği temyiz isteğinin reddini gerektirir bir durumun bulunmadığı yapılan ön inceleme neticesinde tespit edilmekle gereği düşünüldü:  I. HUKUKÎ SÜREÇ  1.Adana 1. Asliye Ceza Mahkemesinin, 22.05.2014 ...
+  [3] score=0.0306 | 7. Ceza Dairesi | E.2023/4879/K.2023/8786 (18.10.2023)
+      gereği temyiz isteklerinin reddini gerektirir bir durumun bulunmadığı yapılan ön inceleme neticesinde tespit edilmekle, gereği düşünüldü:  I. GEREKÇE  Sanıkların yargılama konusu eylemi için, 4733 say...
+
+======================================================================
+[aile] SORGU: boşanma davasında nafaka miktarı
+======================================================================
+  [1] score=0.0311 | 2. Hukuk Dairesi | E.2024/2190/K.2024/8822 (19.11.2024)
+      ekçesinde, günümüz ekonomik koşullarına göre takdir edilen nafakanın çok az olduğunu beyan etmiştir.  C. Gerekçe  1. Uyuşmazlık ve Hukuki Nitelendirme  Uyuşmazlık, tazminatların ve nafakaların miktarı...
+  [2] score=0.0283 | 2. Hukuk Dairesi | E.2023/9636/K.2024/930 (15.02.2024)
+      t talebinin reddine, davalı-davacı kadının ziynet eşya davasının açılmamış sayılmasına, karar verilmiştir.  IV. İSTİNAF  A. İstinaf Yoluna Başvuranlar  İlk Derece Mahkemesinin yukarıda belirtilen kara...
+  [3] score=0.0238 | 2. Hukuk Dairesi | E.2022/11382/K.2023/3287 (15.06.2023)
+      50.000,00 TL maddî tazminata ve 100.000 TL manevî tazminata hükmedilmesine karar verilmesini talep ve dava etmiştir.  III. İLK DERECE MAHKEMESİ KARARI  İlk Derece Mahkemesinin yukarıda tarih ve sayısı...
+
+======================================================================
+[iş hukuku] SORGU: iş akdinin haksız feshi tazminatı
+======================================================================
+  [1] score=0.0306 | 22. Hukuk Dairesi | E.2012/7098/K.2012/29315 (24.12.2012)
+      ıman alınamaması sebebiyle işveren tarafından feshedildiği gerekçesiyle ret kararının bozulmasına karar verilmiştir. Bozma sonrası (2002/301-745) ./..  aldırılan bilirkişi raporunda davacının hizmet s...
+  [2] score=0.0275 | 9. Hukuk Dairesi | E.2016/10474/K.2017/2759 (27.02.2017)
+      ddialar ile iş akdinin feshedilmesinin dayanaksız olduğunu ileri sürerek feshin geçersizliğini ve işe iadesini istemiştir.  B) Davalı Cevabının Özeti:  Davalı vekili, davacının iş akdinin disiplin kur...
+  [3] score=0.0164 | 9. Hukuk Dairesi | E.2015/36323/K.2016/19170 (07.11.2016)
+      9. Hukuk Dairesi         2015/36323 E.  ,  2016/19170 K.  "İçtihat Metni"  MAHKEMESİ :İŞ MAHKEMESİ  DAVA : Davacı, feshin geçersizliğine, işe iadesine ve yasal sonuçlarına hükmedilmesine karar verilme...
+
+======================================================================
+[icra/iflas] SORGU: konkordato mühleti süresince alacaklı haklarına etkisi
+======================================================================
+  [1] score=0.0309 | 23. Hukuk Dairesi | E.2019/2230/K.2020/1502 (04.03.2020)
+      23. Hukuk Dairesi         2019/2230 E.  ,  2020/1502 K.  "İçtihat Metni"  MAHKEMESİ : İzmir Bölge Adliye Mahkemesi 17. Hukuk Dairesi  Taraflar arasındaki konkordato davasının yapılan yargılaması sonun...
+  [2] score=0.0164 | 11. Hukuk Dairesi | E.2024/2609/K.2025/1140 (20.02.2025)
+      t durumun ortaya çıkmasına kendi kusuru ile sebebiyet verdiği gerekçesiyle davanın reddine karar verilmiş, hüküm, davacı vekilince istinaf edilmiştir.  IV. İSTİNAF  Bölge Adliye Mahkemesinin yukarıda ...
+  [3] score=0.0161 | 13. Hukuk Dairesi | E.2015/40661/K.2016/8722 (28.03.2016)
+      13. Hukuk Dairesi         2015/40661 E.  ,  2016/8722 K.  "İçtihat Metni"  MAHKEMESİ :Asliye Hukuk Mahkemesi  Taraflar arasındaki alacak davasının yapılan yargılaması sonunda ilamda yazılı nedenlerden...
+
+======================================================================
+[leksik test] SORGU: 2004 sayılı İcra İflas Kanunu 264. madde
+======================================================================
+  [1] score=0.0328 | 21. Hukuk Dairesi | E.2007/22419/K.2008/16233 (21.10.2008)
+      21. Hukuk Dairesi 2007/22419 E., 2008/16233 K.  21. Hukuk Dairesi 2007/22419 E., 2008/16233 K.  **- BİLİRKİŞİ  - İSTİHKAK**- 2004 S. İCRA VE İFLAS KANUNU [ Madde 96 ]  - 2004 S. İCRA VE İFLAS KANUNU [...
+  [2] score=0.0323 | 3. Hukuk Dairesi | E.2023/5230/K.2024/3397 (30.10.2024)
+      THKK) 4 üncü maddesi,  3. 2004 sayılı İcra ve İflas Kanunu'nun ilamların icrasında "Taşınır teslimi" kenar başlıklı 24 üncü maddesi.  3. Değerlendirme  1. 2004 sayılı İcra ve İflas Kanunu'nun ilamları...
+  [3] score=0.0306 | 11. Hukuk Dairesi | E.2022/5663/K.2024/197 (11.01.2024)
+      ese çıkarılan tebligatın tebliğ edilmiş sayılacağı yönünde bir düzenleme olmadığı gibi 2004 sayılı İcra ve İflas Kanunu'nun (2004 sayılı Kanun) 21 ...  maddesindeki usulün uygulanması kabul edilse dah...
+
+======================================================================
+[ceza] SORGU: kasten öldürme suçunda tasarlama
+======================================================================
+  [1] score=0.0328 | 1. Ceza Dairesi | E.2020/162/K.2021/521 (02.11.2021)
+      en eylem kararlılığından dönülmediğini, sebat ve ısrarını gösterecek nitelikte tasarlamayı kabule elverişli bir süre değildir. Ayrıca yine Yargıtay 1.  Ceza Dairesinin yerleşik içtihatlarına göre somu...
+  [2] score=0.0315 | 1. Ceza  Dairesi | E.2009/251/K.2010/25 (16.02.2010)
+      bi, sanık D...’in, eşinin öldürülmesi için diğer sanığı azmettirdiğine dair mahkûmiyete yeterli kesin ve inandırıcı  kanıt da bulunmadığı gözetilerek;  Sanık D...’in, tasarlayarak eşini öldürmek suçun...
+  [3] score=0.0283 | 1. Ceza Dairesi | E.2019/3177/K.2019/5299 (03.12.2019)
+      asten öldürmenin ihmali davranışla işlenmesi suçunu oluşturduğu yönündeki karşı oyları ve oy çokluğu ile, 03/12/2019 gününde karar verildi.  KARŞI OY:  ...'nın eşi olan sanık ... tarafından kasten öld...
+
+======================================================================
+[borçlar] SORGU: kira sözleşmesinde tahliye taahhüdü
+======================================================================
+  [1] score=0.0323 | 6. Hukuk Dairesi | E.2015/7495/K.2016/2381 (24.03.2016)
+      haksız ve yersiz davanın reddini savunmuştur.  Mahkemece, davanın kabulü ile 39.357TL’nin dava tarihinden yasal faizi ile tahsiline karar verilmiştir.  Taraflar araasındaki 04.02.2010 başlangıç tarihl...
+  [2] score=0.0299 | 3. Hukuk Dairesi | E.2023/2338/K.2024/1820 (04.06.2024)
+      Adliye Mahkemesince Bozma Kararına Uyularak Verilen Karar  Bölge Adliye Mahkemesinin ilam başlığında tarih ve sayısı belirtilen kararıyla; davacı ...  tarafından alınan kararlar doğrultusunda tesis ya...
+  [3] score=0.0299 | 13. Hukuk Dairesi | E.2008/13186/K.2009/2861 (05.03.2009)
+      (Kapatılan) 13. Hukuk Dairesi         2008/13186 E.  ,  2009/2861 K.  "İçtihat Metni"  MAHKEMESİ :Asliye Hukuk Mahkemesi  Taraflar arasındaki tazminat davasının yapılan yargılaması sonunda ilamda yazı...

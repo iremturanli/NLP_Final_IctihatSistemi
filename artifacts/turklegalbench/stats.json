@@ -1,0 +1,9 @@
+{
+  "n_corpus": 300,
+  "n_queries": 85,
+  "n_qrels": 85,
+  "query_types": {
+    "semantic": 71,
+    "lexical": 14
+  }
+}
